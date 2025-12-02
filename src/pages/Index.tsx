@@ -1,7 +1,5 @@
 import { useState, useMemo } from 'react';
-import { BookOpen, Sparkles, Download } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
+import { BookOpen, Sparkles } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import NoteCard from '@/components/notes/NoteCard';
 import FilterBar from '@/components/notes/FilterBar';
@@ -87,22 +85,6 @@ const Index = () => {
 
         {/* Notes Grid */}
         <section>
-          {filteredNotes.length > 0 && (
-            <div className="flex justify-end mb-4">
-              <Button
-                variant="outline"
-                onClick={() => {
-                  toast.success(`Downloading ${filteredNotes.length} notes`, {
-                    description: 'Your downloads will start shortly.',
-                  });
-                }}
-                className="gap-2"
-              >
-                <Download className="h-4 w-4" />
-                Download All ({filteredNotes.length})
-              </Button>
-            </div>
-          )}
           {filteredNotes.length > 0 ? (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {filteredNotes.map((note, index) => (
